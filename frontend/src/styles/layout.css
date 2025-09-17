@@ -1,0 +1,91 @@
+/* Layout styles for the application */
+
+/* Import variables */
+@import './variables.css';
+
+/* Main App layout */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Header layout */
+.app-header {
+  background-color: var(--primary-color);
+  padding: var(--spacing-md) var(--spacing-xl);
+  color: var(--text-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+/* Main content layout */
+.main-content {
+  flex-grow: 1; /* Allow main content to take up remaining space */
+  padding: var(--spacing-xl);
+  max-width: 1200px; /* Max width for content */
+  margin: 0 auto; /* Center content */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* App header layout */
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* Footer layout */
+.app-footer {
+  background-color: var(--light-gray);
+  padding: var(--spacing-md) var(--spacing-xl);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--dark-gray);
+  border-top: 1px solid var(--medium-gray);
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  word-break: break-all; /* Break long contract addresses */
+}
+
+.app-footer p {
+  margin: var(--spacing-xs) 0;
+}
+
+/* Hero section layout */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Dashboard layout */
+.dashboard-nav {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--light-gray);
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}

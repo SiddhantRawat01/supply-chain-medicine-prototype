@@ -1,0 +1,196 @@
+/* src/styles/TransferForm.module.css */
+
+/* Using BEM-like naming within the module for clarity */
+
+.transferForm {
+  /* Inherits panel styling if wrapped by a .panel class */
+  padding: 1.5rem 2rem; /* Add more padding */
+  border: 1px solid #e0e0e0; /* Or use existing panel border */
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.formTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #34495e; /* Consistent dark blue-grey */
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb; /* Subtle separator */
+}
+
+.permissionError {
+  color: #a94442;
+  background-color: #fdeaea;
+  border: 1px solid #f9aea4;
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.formGroup {
+  margin-bottom: 1.2rem;
+}
+
+.formLabel {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #374151; /* Dark grey text */
+}
+
+.formInput {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d1d5db; /* Slightly darker border */
+  border-radius: 6px; /* Slightly more rounded */
+  font-size: 1rem;
+  color: #1f2937;
+  background-color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.formInput::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.formInput:focus {
+  border-color: #3b82f6; /* Blue focus */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* Focus ring */
+}
+
+.formInput:disabled {
+  background-color: #f3f4f6; /* Disabled background */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Error state for inputs */
+.formInput--error {
+  border-color: #ef4444; /* Red border for error */
+}
+.formInput--error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25); /* Red focus ring */
+}
+
+.formHint {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280; /* Grey hint text */
+  margin-top: 0.3rem;
+}
+
+/* Layout for side-by-side fields */
+.formRow {
+  display: flex;
+  flex-wrap: wrap; /* Wrap on smaller screens */
+  gap: 1.5rem; /* Space between items in the row */
+  margin-left: -0.75rem; /* Counteract padding if formGroup adds padding */
+  margin-right: -0.75rem;
+}
+
+/* Adjust form group when in a row */
+.formRow .formGroup {
+  flex: 1 1 0%; /* Allow items to grow and shrink */
+  min-width: 150px; /* Minimum width before wrapping */
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  box-sizing: border-box;
+}
+
+/* Specific half-width modifier (optional if flex-grow handles it) */
+
+
+/* --- Button Styles --- */
+.submitButton {
+  display: inline-flex; /* Align icon and text */
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.8rem; /* More padding */
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  background-color: #3b82f6; /* Primary blue */
+  color: white;
+  margin-top: 0.5rem; /* Space above button */
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #2563eb; /* Darker blue on hover */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4); /* Focus ring */
+}
+
+.submitButton:disabled {
+  background-color: #9ca3af; /* Grey disabled */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* --- Status & Error Messages --- */
+.statusMessage {
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  margin-top: 1.5rem; /* Space above status message */
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+.statusMessage--info {
+  background-color: #eff6ff; /* Light blue */
+  border-color: #bfdbfe;
+  color: #3b82f6;
+}
+
+.statusMessage--loading {
+  background-color: #fefce8; /* Light yellow */
+  border-color: #fde047;
+  color: #ca8a04;
+  /* Add optional spinner/animation */
+  /* Example: background: linear-gradient(90deg, #fefce8 80%, #fde047 100%); animation: loading-pulse 1.5s infinite; */
+}
+
+.statusMessage--success {
+  background-color: #f0fdf4; /* Light green */
+  border-color: #bbf7d0;
+  color: #16a34a;
+}
+
+.statusMessage--error {
+  background-color: #fef2f2; /* Light red */
+  border-color: #fecaca;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+/* Keyframes for optional loading animation */
+@keyframes loading-pulse {
+  0% { background-position: -100px 0; }
+  100% { background-position: calc(100% + 100px) 0; }
+}
+
+/* Inline validation error below input */
+.inputError {
+  font-size: 0.8rem;
+  color: #dc2626; /* Error color */
+  margin-top: 0.3rem;
+  min-height: 1em; /* Prevent layout shifts */
+}

@@ -1,0 +1,73 @@
+/* src/styles/HoverToReveal.module.css */
+
+.container {
+    position: relative; /* Crucial for positioning the full version */
+    display: inline-block; /* Behaves like text but allows positioning */
+    cursor: help; /* Indicate interaction */
+}
+
+.shortVersion {
+    /* Styles for the default, shortened view */
+    display: inline-block;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 1;
+    /* Inherit parent font styles or define specific ones */
+}
+
+.fullVersion {
+    /* Styles for the hidden, full version */
+    display: inline-block; /* Or block if needed */
+    position: absolute; /* Position relative to the container */
+    left: 0;
+    top: 0;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden; /* Hidden by default */
+    pointer-events: none; /* Not interactive when hidden */
+    transition: opacity 0.2s ease-in-out, visibility 0s linear 0.2s; /* Fade effect, delay visibility change */
+
+    /* Appearance to make it clear it's an overlay */
+    background-color: #f0f0f0; /* Light background */
+    padding: 2px 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+    z-index: 10; /* Ensure it's on top */
+
+    /* Ensure text is selectable */
+    user-select: text; /* Standard */
+    -webkit-user-select: text; /* Safari */
+    -moz-user-select: text; /* Firefox */
+    -ms-user-select: text; /* IE/Edge */
+
+    white-space: nowrap; /* Keep it on one line usually */
+    /* Add word-break if extremely long hashes might overflow excessively */
+    /* word-break: break-all; */
+}
+
+/* Styling for specific types */
+.addressType,
+.hashType {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em; /* Adjust as needed */
+}
+
+/* The Hover Effect */
+.container:hover .shortVersion {
+    opacity: 0; /* Hide the short version smoothly */
+    pointer-events: none; /* Make sure it doesn't block the full version */
+    transition-delay: 0s; /* Ensure immediate start of hiding */
+}
+
+.container:hover .fullVersion {
+    opacity: 1; /* Show the full version */
+    visibility: visible; /* Make it visible */
+    pointer-events: auto; /* Make it interactive (for selection) */
+    transition-delay: 0.1s; /* Slight delay before showing full version */
+}
+
+/* Span used when no reveal is needed */
+.noReveal {
+     /* Add address/hash styling if it should match */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+}

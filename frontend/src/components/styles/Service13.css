@@ -1,0 +1,124 @@
+.service13-section {
+  padding: 120px 20px;
+  background: linear-gradient(135deg, white, #3b82f6);
+  color: #1e3a8a;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #1e3a8a, #327ef9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  font-size: 1.5rem;
+  color: #1c6ef0;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.service13-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media (min-width: 1024px) {
+  .service13-grid {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.service-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1;
+}
+
+.image-column {
+  flex: 1;
+  order: -1;
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 40px;
+  transform-origin: left center;
+}
+
+.service-image {
+  width: 100%;
+  height: 600px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 15px 30px rgba(30, 58, 138, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transform-origin: left center;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 2px solid #2e7dfc;
+  background-color: linear-gradient(135deg, white, #3b82f6);
+  cursor: pointer;
+  transform-origin: center;
+}
+
+.service-item:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+  border-color: #00438f;
+}
+
+.icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.text-content h4 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #1e40af;
+}
+
+.text-content p {
+  font-size: 1.05rem;
+  color: #4b5563;
+  line-height: 1.6;
+}

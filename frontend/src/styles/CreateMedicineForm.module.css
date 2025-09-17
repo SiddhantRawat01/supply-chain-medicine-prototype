@@ -1,0 +1,190 @@
+/* src/styles/CreateMedicineForm.module.css */
+
+/* Import common styles or define specific ones */
+/* Re-use styles from TransferForm.module.css if applicable */
+/* For brevity, assume similar structure: .formPanel, .formTitle, .formGroup, .formLabel, .formInput, .formTextarea, .formRow, .formHint, .inputError, .submitButton, .statusMessage, etc. */
+
+.formPanel {
+  padding: 1.5rem 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.formTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.formGroup {
+  margin-bottom: 1.2rem;
+}
+
+.formLabel {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.formInput,
+.formTextarea {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #1f2937;
+  background-color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.formTextarea {
+  min-height: 80px; /* Default textarea height */
+  resize: vertical; /* Allow vertical resize */
+}
+
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  border-color: #3b82f6; /* Blue focus */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* Focus ring */
+}
+
+.formInput:disabled,
+.formTextarea:disabled {
+  background-color: #f3f4f6; /* Disabled background */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.formInput--error,
+.formTextarea--error {
+  border-color: #ef4444; /* Red border for error */
+}
+.formInput--error:focus,
+.formTextarea--error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25); /* Red focus ring */
+}
+
+.formHint {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280; /* Grey hint text */
+  margin-top: 0.3rem;
+}
+
+/* Layout for side-by-side fields */
+.formRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.formRow .formGroup {
+  flex: 1 1 0%;
+  min-width: 150px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  box-sizing: border-box;
+}
+
+.coordinateHint {
+    font-weight: 400;
+    font-size: 0.8em;
+    color: #6b7280;
+    margin-left: 0.3em;
+}
+
+/* Error message styling */
+.inputError {
+  font-size: 0.8rem;
+  color: #dc2626; /* Error color */
+  margin-top: 0.3rem;
+  min-height: 1em; /* Prevent layout shifts */
+}
+
+.errorList {
+    list-style: disc;
+    padding-left: 1.5rem; /* Indent list */
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #dc2626;
+}
+.errorList li {
+    margin-bottom: 0.25rem;
+}
+
+/* Button styles */
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  background-color: #16a34a; /* Success/Create color (Green) */
+  color: white;
+  margin-top: 1.5rem; /* Space above button */
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #15803d; /* Darker green */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.4); /* Green focus ring */
+}
+
+.submitButton:disabled {
+  background-color: #86efac; /* Lighter green disabled */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Status message styling (reuse from TransferForm or adapt) */
+.statusMessage {
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+.statusMessage--info { background-color: #eff6ff; border-color: #bfdbfe; color: #3b82f6; }
+.statusMessage--loading { background-color: #fefce8; border-color: #fde047; color: #ca8a04; }
+.statusMessage--success { background-color: #f0fdf4; border-color: #bbf7d0; color: #16a34a; }
+.statusMessage--error { background-color: #fef2f2; border-color: #fecaca; color: #dc2626; font-weight: 500;}
+
+/* Loading spinner (reuse from TransferForm) */
+.loading { display: inline-flex; align-items: center; gap: 0.5rem; }
+.spinner { width: 1.2em; height: 1.2em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spinner-rotation 0.7s linear infinite; }
+@keyframes spinner-rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }

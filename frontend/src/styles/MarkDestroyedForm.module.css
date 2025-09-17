@@ -1,0 +1,228 @@
+/* src/styles/MarkDestroyedForm.module.css */
+
+.formContainer {
+  /* Inherits panel styling if wrapped */
+  padding: 1.5rem 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start; /* Align icon top */
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+.alertIcon {
+  flex-shrink: 0;
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+  margin-top: 0.1rem; /* Align slightly better with text */
+}
+
+.alertContent h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.alertContent p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Alert Variants */
+.alert--error {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c; /* Darker red for text */
+}
+.alert--error .alertIcon {
+  fill: #ef4444; /* Red icon */
+}
+.alert--error h4 {
+ color: #991b1b;
+}
+
+.alert--info {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e40af; /* Darker blue */
+}
+.alert--info .alertIcon {
+  fill: #60a5fa; /* Blue icon */
+}
+.alert--info h4 {
+ color: #1d4ed8;
+}
+
+.alert--success {
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #15803d; /* Darker green */
+}
+.alert--success .alertIcon {
+  fill: #4ade80; /* Green icon */
+}
+.alert--success h4 {
+ color: #166534;
+}
+
+.alert--loading {
+  background-color: #fefce8;
+  border-color: #fde047;
+  color: #a16207; /* Darker yellow/brown */
+}
+.alert--loading .alertIcon {
+  fill: #facc15; /* Yellow icon */
+}
+.alert--loading h4 {
+ color: #854d0e;
+}
+
+
+.formGrid {
+  display: grid;
+  gap: 1.2rem; /* Space between grid items */
+}
+
+/* Layout for Geo Coordinates side-by-side */
+.geoGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.required {
+  color: #ef4444; /* Red asterisk */
+  margin-left: 0.25rem;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #1f2937;
+  background-color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.input:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.input--error {
+  border-color: #ef4444;
+}
+.input--error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+}
+
+.inputError {
+  font-size: 0.8rem;
+  color: #dc2626;
+  margin-top: 0.3rem;
+  min-height: 1em;
+}
+
+.actions {
+  margin-top: 1.5rem;
+  text-align: right; /* Align button to the right */
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  background-color: #dc2626; /* Destructive action color (Red) */
+  color: white;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #b91c1c; /* Darker red */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.4); /* Red focus ring */
+}
+
+.submitButton:disabled {
+  background-color: #fca5a5; /* Lighter red disabled */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spinner {
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-rotation 0.7s linear infinite;
+}
+
+@keyframes spinner-rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

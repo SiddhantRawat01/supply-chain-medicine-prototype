@@ -1,0 +1,244 @@
+.faq-container {
+  max-width: 100%;
+  margin: 100px auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 5%;
+  position: relative;
+  background: linear-gradient(135deg,white, #3b82f6);
+  padding-bottom: 80px;
+  padding-top: 100px;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.faq-header h2 {
+  font-size: 2.5rem;
+  color: #2a2a2a;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.faq-header h2:after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #fafafa);
+  bottom: -10px;
+  left: 20%;
+  border-radius: 2px;
+}
+
+.faq-header p {
+  color: #555;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.floating-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(165, 243, 252, 0.15);
+  backdrop-filter: blur(5px);
+}
+
+.shape-1 {
+  width: 120px;
+  height: 120px;
+  top: -30px;
+  right: 10%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 80px;
+  height: 80px;
+  bottom: -20px;
+  left: 15%;
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+.shape-3 {
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  left: 5%;
+  animation: float 5s ease-in-out infinite 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.faq-accordion {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: white;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  position: relative;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.question-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #a5f3fc);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2a2a2a;
+  transition: color 0.3s ease;
+}
+
+.faq-item.active .faq-question h3 {
+  color: #3b82f6;
+}
+
+.faq-toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f0f8ff;
+  color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item.active .faq-toggle {
+  background: #3b82f6;
+  color: white;
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  background: #f9fbfd;
+}
+
+.answer-content {
+  display: flex;
+  gap: 20px;
+  padding: 10px 30px 30px 90px;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+.faq-answer p {
+  margin: 0;
+  color: #555;
+  line-height: 1.7;
+}
+
+.faq-item.active {
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.1);
+  z-index: 2;
+}
+
+/* Hover effects */
+.faq-question:hover {
+  background-color: #f9fbfd;
+}
+
+.faq-question:hover h3 {
+  color: #3b82f6;
+}
+
+.faq-question:hover .faq-toggle {
+  transform: scale(1.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .faq-container {
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  
+  .faq-header h2 {
+    font-size: 2rem;
+  }
+  
+  .question-content, .answer-content {
+    gap: 15px;
+  }
+  
+  .answer-content {
+    padding: 10px 20px 25px 75px;
+  }
+  
+  .icon-circle {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}

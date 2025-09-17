@@ -1,0 +1,165 @@
+/* client/src/styles/TransactionHistory.module.css */
+.transactionHistory {
+    margin-top: 1.5rem;
+}
+
+.transactionHistory h3 {
+    font-size: 1.2rem;
+    color: #34495e;
+    margin-bottom: 1rem;
+}
+
+.tableContainer {
+    overflow-x: auto; /* Enable horizontal scroll on small screens */
+    max-width: 100%;
+}
+
+.historyTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    white-space: nowrap; /* Prevent wrapping initially, rely on scroll */
+}
+
+.historyTable th,
+.historyTable td {
+    padding: 0.8rem 0.6rem; /* Adjust padding */
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: middle;
+}
+
+.historyTable th {
+    background-color: #f8f9fa; /* Light header */
+    font-weight: 600;
+    color: #495057;
+}
+
+.historyRow:hover {
+    background-color: #f1f3f5; /* Subtle hover */
+}
+
+.hashCell {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85em;
+    max-width: 250px; /* Limit width */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+    white-space: nowrap;
+}
+
+.hashCell[title]:hover {
+    white-space: normal; /* Allow wrap on hover if needed */
+    word-break: break-all;
+}
+
+.infoMessage {
+  color: #555;
+  font-style: italic;
+  padding: 1rem;
+  text-align: center;
+}
+
+.errorRow td {
+    color: #a94442;
+    background-color: #fdeaea;
+    font-style: italic;
+}
+/* client/src/styles/TransactionHistory.module.css */
+
+.transactionHistory {
+    margin-top: 1.5rem;
+}
+
+.transactionHistory h3 {
+    font-size: 1.2rem; /* Slightly smaller than details */
+    color: #34495e;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee; /* Match details section heading */
+}
+
+.historyList {
+    /* Container for all log entries */
+    padding-left: 0; /* Remove default list padding if using ul/ol */
+    list-style: none; /* Remove bullets if using ul/ol */
+}
+
+.logEntry {
+    /* Style for each individual log item */
+    padding: 1rem 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb; /* Separator line */
+    background-color: #fff; /* Optional background */
+    border-radius: 4px; /* Optional rounded corners */
+    /* box-shadow: 0 1px 2px rgba(0,0,0,0.05); Optional subtle shadow */
+}
+
+.logEntry:last-child {
+    border-bottom: none; /* No line after the last item */
+    margin-bottom: 0;
+}
+
+.logField {
+    /* Style for each label-value pair row */
+    display: grid; /* Use grid for alignment */
+    grid-template-columns: 130px 1fr; /* Fixed width for label, rest for value */
+    gap: 0.8rem; /* Space between label and value */
+    align-items: start; /* Align items to the start of the grid cell */
+    margin-bottom: 0.5rem; /* Space between fields within an entry */
+    font-size: 0.9rem; /* Slightly smaller font for history fields */
+    line-height: 1.5;
+}
+
+.logField:last-child {
+    margin-bottom: 0; /* No space after the last field in an entry */
+}
+
+.logLabel {
+    grid-column: 1 / 2; /* Label in first column */
+    font-weight: 600;
+    color: #555e68; /* Slightly muted label color */
+    text-align: right; /* Right-align labels for neatness */
+    padding-right: 0.5rem;
+    white-space: nowrap; /* Prevent labels from wrapping */
+}
+
+.logValue {
+    grid-column: 2 / 3; /* Value in second column */
+    color: #2c3e50; /* Darker value color */
+    word-wrap: break-word; /* Allow long values to wrap */
+    word-break: break-word; /* Break long words if necessary */
+}
+
+/* Specific styling for addresses and hashes */
+.logAddress,
+.logHash {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em; /* Slightly smaller mono font */
+    background-color: #f8f9fa; /* Subtle background for code-like values */
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    cursor: help; /* Indicate hover tooltip is available */
+}
+
+.logHash {
+     /* Ensure hashes can break if extremely long and container is narrow */
+    word-break: break-all;
+}
+
+
+.infoMessage {
+  color: #555;
+  font-style: italic;
+  padding: 1rem;
+  text-align: center;
+}
+
+.errorEntry {
+    color: #a94442;
+    background-color: #fdeaea;
+    font-style: italic;
+    padding: 0.8rem;
+    text-align: center;
+    border: 1px solid #f9aea4;
+}

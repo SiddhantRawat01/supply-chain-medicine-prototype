@@ -1,0 +1,435 @@
+/* client/src/components/Header.css */
+/* Base Variables */
+.header-component {
+    --color-primary: #2c3e50;
+    --color-accent: #3498db;
+    --color-danger: #e74c3c;
+    --color-success: #27ae60;
+    --color-text: #4a5568;
+    --color-border: #e2e8f0;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-component__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+}
+
+/* Branding */
+.header-component__brand {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-component__brand-accent {
+    color: var(--color-accent);
+}
+
+.header-component__beta {
+    font-size: 0.65em;
+    font-weight: 500;
+    color: #ffffff;
+    background: var(--color-accent);
+    padding: 0.15em 0.5em;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+}
+
+/* Wallet Status */
+.header-component__wallet-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #f8fafc;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+
+.header-component__wallet-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-accent);
+}
+
+.header-component__wallet-address {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+/* Role Selector */
+.header-component__role-trigger {
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.header-component__role-trigger:hover {
+    background: #2980b9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-component__dropdown-indicator {
+    font-size: 0.7em;
+    transition: transform var(--transition-speed) ease;
+}
+
+.header-component__dropdown-indicator--active {
+    transform: rotate(180deg);
+}
+
+/* Role Menu */
+.header-component__role-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5rem);
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    min-width: 280px;
+    overflow: hidden;
+    animation: header-component__menu-entrance 0.2s ease;
+}
+
+@keyframes header-component__menu-entrance {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.header-component__role-menu-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header-component__role-menu-header h4 {
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+}
+
+.header-component__role-hint {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+/* Role Items */
+.header-component__role-list {
+    padding: 0.5rem 0;
+}
+
+.header-component__role-item {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background var(--transition-speed) ease;
+}
+
+.header-component__role-item:hover:not(.header-component__role-item--disabled) {
+    background: #f8fafc;
+}
+
+.header-component__role-item--disabled {
+    color: #cbd5e0;
+    cursor: not-allowed;
+}
+
+.header-component__role-permission svg {
+    width: 16px;
+    height: 16px;
+    fill: #e53e3e;
+}
+
+/* Role Actions */
+.header-component__role-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.header-component__action-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.header-component__action-button--secondary {
+    background: #f8fafc;
+    color: var(--color-text);
+}
+
+.header-component__action-button--secondary:hover {
+    background: #e2e8f0;
+}
+
+.header-component__action-button--danger {
+    background: #fff5f5;
+    color: #e53e3e;
+}
+
+.header-component__action-button--danger:hover {
+    background: #fed7d7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-component__container {
+        padding: 0 1rem;
+        height: 60px;
+    }
+    
+    .header-component__brand {
+        font-size: 1.5rem;
+    }
+    
+    .header-component__wallet-status {
+        padding: 0.25rem 0.75rem;
+    }
+    
+    .header-component__role-trigger {
+        padding: 0.5rem 1rem;
+    }
+    
+    .header-component__role-menu {
+        min-width: 240px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-component__container {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+    
+    .header-component__controls {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
+/* Update the account info container */
+.header-component__account-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+}
+
+/* Wallet status adjustments */
+.header-component__wallet-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #f8fafc;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    height: 42px; /* Fixed height for alignment */
+}
+
+/* Role selector adjustments */
+.header-component__role-selector {
+    position: relative;
+    height: 42px; /* Match wallet status height */
+}
+
+.header-component__role-trigger {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+/* Dropdown menu positioning */
+.header-component__role-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    z-index: 1000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-component__account-info {
+        gap: 1rem;
+    }
+    
+    .header-component__wallet-status {
+        padding: 0.5rem 0.75rem;
+        height: 38px;
+    }
+    
+    .header-component__role-trigger {
+        padding: 0 1rem;
+    }
+}
+/* Header.css updates */
+/* Wallet Address Button */
+.header-component__wallet-status {
+    height: 42px; /* Match role selector height */
+    display: flex;
+    align-items: center;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+}
+
+/* Role Selector Button */
+.header-component__role-trigger {
+    height: 42px;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown Menu Items */
+.header-component__role-item {
+    height: 42px; /* Match parent button height */
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+/* Vertical Alignment Container */
+.header-component__account-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 60px; /* Total container height */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header-component__wallet-status,
+    .header-component__role-trigger {
+        height: 38px;
+        padding: 0 1rem;
+    }
+    
+    .header-component__role-item {
+        height: 38px;
+        padding: 0 1rem;
+    }
+    
+    .header-component__account-info {
+        height: 54px;
+    }
+}
+/* Update the wallet address and role selector */
+.header-component__wallet-status,
+.header-component__role-trigger {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    line-height: 42px; /* Match height for perfect vertical centering */
+}
+
+/* Specific wallet address styling */
+.header-component__wallet-status {
+    background: #f8fafc;
+    border: 1px solid var(--color-border);
+    gap: 0.75rem;
+}
+
+/* Role trigger specific styling */
+.header-component__role-trigger {
+    background: var(--color-accent);
+    color: white;
+    gap: 0.75rem;
+}
+
+/* Container alignment */
+.header-component__account-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+}
+
+/* Ensure dropdown items match button height */
+.header-component__role-item {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-component__wallet-status,
+    .header-component__role-trigger,
+    .header-component__role-item {
+        height: 38px;
+        padding: 0 1.25rem;
+        line-height: 38px;
+    }
+}
+/* Add vertical alignment fix */
+.header-component__account-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+    transform: translateY(1px); /* Compensate for visual weight difference */
+}
+
+.header-component__wallet-status {
+    margin-bottom: -1px; /* Compensate for border */
+}
+
+.header-component__role-trigger {
+    margin-top: -1px; /* Compensate for shadow/border */
+}
+
+/* Ensure perfect vertical centering */
+.header-component__wallet-status,
+.header-component__role-trigger {
+    vertical-align: middle;
+    line-height: calc(42px - 2px); /* Adjust for border */
+    position: relative;
+    top: -1px; /* Fine-tune alignment */
+}
+
+/* Specific mobile adjustments */
+@media (max-width: 768px) {
+    .header-component__wallet-status,
+    .header-component__role-trigger {
+        line-height: calc(38px - 2px);
+        top: 0;
+    }
+}

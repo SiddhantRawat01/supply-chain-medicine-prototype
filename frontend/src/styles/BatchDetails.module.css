@@ -1,0 +1,80 @@
+/* src/styles/BatchDetails.module.css */
+
+.batchDetails {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem; /* Add some space above the details */
+}
+
+.panel {
+  /* Common panel styling if needed, e.g., shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.batchSpecificDetails h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.batchSpecificDetails p,
+.batchSpecificDetails li {
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+.batchSpecificDetails strong {
+  color: #333;
+  margin-right: 0.5em; /* Space after label */
+  display: inline-block; /* Ensure consistent alignment */
+ /* min-width: 150px; /* Optional: align values */
+}
+
+/* Style for displaying full hashes/addresses */
+.fullHash {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95em;
+  color: #2a2a2a; /* Slightly darker for emphasis */
+
+  /* Allow text to break and wrap onto the next line */
+  word-wrap: break-word; /* Older browsers */
+  overflow-wrap: break-word; /* Standard */
+  word-break: break-all; /* Force breaks even within words/hashes */
+
+  /* Display as inline-block to respect wrapping within the flow */
+  display: inline-block;
+  line-height: 1.3; /* Adjust for wrapped text */
+  /* Optional: max-width if needed, but wrapping should handle it */
+  /* max-width: 100%; */
+  vertical-align: top; /* Align better if label is longer */
+}
+
+
+.batchDetailsList {
+  list-style: disc;
+  padding-left: 25px;
+  margin-top: 0.5rem;
+}
+
+.batchDetailsSeparator {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1.5rem 0;
+}
+
+.infoMessage {
+    color: #666;
+    font-style: italic;
+}
+
+.errorMessage {
+    color: #d9534f; /* Bootstrap danger color */
+    font-weight: bold;
+}
+
+/* Add styles for TransactionHistory if needed, or ensure it uses its own module */

@@ -1,0 +1,100 @@
+/* src/styles/WholesalerDashboard.module.css */
+
+/* --- Base Layout --- */
+.dashboardContainer {
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  max-width: 1200px;
+  margin: 2rem auto;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 1.8rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;
+}
+.description {
+  font-size: 1rem; color: #6b7280; margin-bottom: 2rem;
+}
+
+/* --- Section/Panel/Card Styling --- */
+.section {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.sectionTitle {
+  font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-top: 0; margin-bottom: 1rem;
+}
+.sectionBody {
+  font-size: 0.95rem; color: #4b5563; margin-bottom: 1.5rem;
+}
+
+/* --- Location Section --- */
+.locationInputs {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr; /* Default to single column */
+}
+@media (min-width: 768px) {
+  .locationInputs { grid-template-columns: 1fr 1fr auto; } /* 3 columns on larger screens */
+  .locationInputs button { align-self: end; /* Align button bottom */ margin-bottom: 0.05rem; /* Fine-tune alignment */}
+}
+
+/* --- Form Elements --- */
+.formGroup { display: flex; flex-direction: column; gap: 0.5rem; flex-grow: 1;}
+.formLabel { font-weight: 500; font-size: 0.9rem; color: #374151; }
+.formInput { display: block; width: 100%; padding: 0.7rem 1rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 1rem; color: #1f2937; background-color: #fff; transition: border-color 0.2s ease, box-shadow 0.2s ease; box-sizing: border-box; }
+.formInput:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); }
+.formInput::placeholder { color: #9ca3af; opacity: 1; }
+.formInput:disabled { background-color: #f3f4f6; cursor: not-allowed; opacity: 0.7; }
+
+/* Inline label variant */
+.formLabelInline { margin-right: 0.8rem; flex-shrink: 0; font-weight: 500; font-size: 0.9rem; color: #374151;}
+.inputGroupInline { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+.inputGroupInline .formInput { flex-grow: 1; }
+
+
+/* --- Buttons --- */
+.button { display: inline-flex; align-items: center; justify-content: center; padding: 0.6rem 1.2rem; font-size: 0.95rem; font-weight: 600; border: 1px solid transparent; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; white-space: nowrap; }
+.buttonPrimary { background-color: #3b82f6; color: white; border-color: #3b82f6; }
+.buttonPrimary:hover:not(:disabled) { background-color: #2563eb; border-color: #2563eb;}
+.buttonSecondary { background-color: #e5e7eb; color: #374151; border-color: #d1d5db; }
+.buttonSecondary:hover:not(:disabled) { background-color: #d1d5db; border-color: #9ca3af;}
+.button:disabled { background-color: #d1d5db; border-color: #d1d5db; color: #6b7280; cursor: not-allowed; opacity: 0.7; }
+.button:focus { outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4); }
+
+
+/* --- Nav --- */
+.nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 1rem; }
+.navButton { padding: 0.6rem 1rem; font-size: 0.9rem; font-weight: 500; border: 1px solid #d1d5db; border-radius: 6px; background-color: #fff; color: #374151; cursor: pointer; transition: all 0.2s ease; }
+.navButton:hover:not(:disabled) { background-color: #f3f4f6; border-color: #9ca3af;}
+.navButtonActive { background-color: #3b82f6; color: #fff; border-color: #2563eb; cursor: default; }
+
+/* --- Status Area --- */
+.statusArea { margin-bottom: 1.5rem; min-height: 3rem; /* Reserve space */ }
+.statusMessage { display: flex; align-items: flex-start; gap: 0.8rem; padding: 1rem 1.2rem; border-radius: 6px; border: 1px solid transparent; }
+.statusIcon { flex-shrink: 0; width: 1.5rem; height: 1.5rem; margin-top: 0.1rem; }
+.statusContent { font-size: 0.95rem; line-height: 1.5; }
+.statusMessage--info { background-color: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+.statusMessage--info .statusIcon { fill: #60a5fa; }
+.statusMessage--success { background-color: #f0fdf4; border-color: #bbf7d0; color: #15803d; }
+.statusMessage--success .statusIcon { fill: #4ade80; }
+.statusMessage--error { background-color: #fef2f2; border-color: #fecaca; color: #b91c1c; }
+.statusMessage--error .statusIcon { fill: #ef4444; }
+
+/* Generic Messages */
+.infoMessage, .errorMessage { padding: 1rem; text-align: center; border-radius: 6px; }
+.infoMessage { background-color: #f3f4f6; color: #4b5563; }
+.errorMessage { background-color: #fef2f2; color: #b91c1c; font-weight: 500; }
+
+/* Audit View Controls */
+.viewBatchControls { display: flex; gap: 1rem; align-items: flex-end; margin-bottom: 1.5rem; }
+.viewBatchControls .formGroup { flex-grow: 1; margin-bottom: 0; } /* Remove margin */
+.viewBatchControls button { flex-shrink: 0; }
+
+/* Spinner */
+.spinner { width: 1em; height: 1em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 0.5em; animation: spinner-rotation 0.7s linear infinite; }
+@keyframes spinner-rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }

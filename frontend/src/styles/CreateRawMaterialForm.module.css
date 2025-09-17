@@ -1,0 +1,387 @@
+/* src/styles/CreateRawMaterialForm.module.css */
+
+/* --- Overall Container --- */
+
+/* --- Shared Panel Style (for form and history section) --- */
+.panel {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb; /* Light grey border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.05), 0 1px 2px -1px rgba(0,0,0,0.05); /* Subtle shadow */
+  padding: 1.5rem; /* Internal padding */
+  margin-bottom: 1.5rem; /* Space below panel */
+}
+
+.formTitle {
+  font-size: 1.4rem; /* Title size */
+  font-weight: 600;
+  color: #1f2937; /* Dark grey */
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb; /* Separator line */
+}
+
+/* --- Form Input Groups & Layout --- */
+.formGroup {
+  margin-bottom: 1.2rem; /* Space between form groups */
+}
+
+.formLabel {
+  display: block;
+  font-weight: 500; /* Medium weight */
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #374151; /* Slightly lighter dark grey */
+}
+
+.formInput {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d1d5db; /* Standard border */
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #1f2937;
+  background-color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+.formInput:focus {
+  border-color: #3b82f6; /* Blue focus */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* Focus ring */
+}
+.formInput::placeholder { color: #9ca3af; opacity: 1; }
+.formInput:disabled { background-color: #f3f4f6; cursor: not-allowed; opacity: 0.7; }
+
+.formInputError {
+  border-color: #ef4444 !important; /* Red border for error, use important if needed */
+}
+.formInputError:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25) !important; /* Red focus ring */
+}
+
+.formHint {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280; /* Grey hint text */
+  margin-top: 0.3rem;
+}
+
+.formErrorMessage {
+  font-size: 0.8rem;
+  color: #dc2626; /* Red error text */
+  margin-top: 0.3rem;
+  min-height: 1em; /* Prevent layout shifts */
+}
+
+/* Row layout for coordinates */
+.formRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Space between columns */
+  margin-left: -0.75rem; /* Adjust for potential padding */
+  margin-right: -0.75rem;
+}
+.formGroupHalf {
+  flex: 1 1 0%; /* Allow flexible sizing */
+  min-width: 150px; /* Minimum width before wrapping */
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  box-sizing: border-box;
+}
+
+
+/* --- Submit Button --- */
+.button { /* Base button style if needed */
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.7rem 1.5rem; font-size: 1rem; font-weight: 600;
+  border: 1px solid transparent; border-radius: 6px; cursor: pointer;
+  transition: all 0.2s ease; white-space: nowrap;
+}
+.buttonPrimary { background-color: #16a34a; color: white; border-color: #16a34a; } /* Green for create */
+.buttonPrimary:hover:not(:disabled) { background-color: #15803d; border-color: #15803d;}
+.button:disabled { background-color: #d1d5db; border-color: #d1d5db; color: #6b7280; cursor: not-allowed; opacity: 0.7; }
+.button:focus { outline: none; box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.4); } /* Green focus ring */
+
+.createRawMaterialFormButton { /* Specific margin if needed */
+  margin-top: 0.5rem;
+  width: 100%; /* Make button full width of its container */
+}
+@media (min-width: 640px) { /* Or larger breakpoint */
+    .createRawMaterialFormButton { width: auto; } /* Auto width on larger screens */
+}
+
+
+/* --- Form Status Message --- */
+.formStatus {
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  margin-top: 1.5rem; /* Space above status message */
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  word-wrap: break-word;
+  line-height: 1.5;
+  text-align: center; /* Center align form status */
+}
+.formStatus--info, .formStatus--loading { background-color: #eff6ff; border-color: #bfdbfe; color: #1e40af; } /* Blue for info/loading */
+.formStatus--success { background-color: #f0fdf4; border-color: #bbf7d0; color: #15803d; } /* Green for success */
+.formStatus--error { background-color: #fef2f2; border-color: #fecaca; color: #b91c1c; font-weight: 500; } /* Red for error */
+
+
+/* --- History & Details Section --- */
+.historySection {
+  /* Inherits .panel styles */
+  margin-top: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.loadingMessage, .noHistoryMessage {
+  text-align: center;
+  padding: 1rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.formStatusError { /* For history/details fetch errors */
+  background-color: #fef2f2; border-color: #fecaca; color: #b91c1c;
+  padding: 0.8rem 1.2rem; border-radius: 6px; font-size: 0.95rem;
+  border: 1px solid #fecaca; font-weight: 500; text-align: center;
+}
+
+/* --- History Table --- */
+.historyTableContainer {
+  overflow-x: auto; /* Still useful for overall table on very small screens */
+  max-width: 100%;
+}
+
+.historyTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  table-layout: fixed; /* Helps with column width distribution */
+}
+
+.historyTable th,
+.historyTable td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+   /* Allow wrapping within cells */
+   word-wrap: break-word;
+   word-break: break-all; /* Force break for long hashes/addresses */
+}
+
+/* --- Adjusted column widths (example) --- */
+.historyTable th:nth-child(1), /* Batch Address */
+.historyTable td:nth-child(1) {
+    width: 45%; /* Allocate more space */
+}
+.historyTable th:nth-child(2), /* Creation Tx */
+.historyTable td:nth-child(2) {
+    width: 40%; /* Allocate more space */
+}
+.historyTable th:nth-child(3), /* Actions */
+.historyTable td:nth-child(3) {
+    width: 15%;
+    white-space: nowrap; /* Keep actions on one line */
+    text-align: center;
+}
+
+
+.historyTable th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.historyRow:hover {
+  background-color: #f9fafb;
+}
+
+/* --- Cell Styling for Full Addresses/Hashes --- */
+.addressCell, .txHashCell {
+  font-family: monospace; /* Use monospace for readability */
+  font-size: 0.85em;    /* Slightly smaller font */
+  line-height: 1.4;     /* Improve spacing for wrapped lines */
+  /* Remove max-width and text-overflow */
+}
+
+.fullAddress { /* Span inside the cell - no longer needs special styling */
+    display: inline; /* Default span display */
+    /* Remove cursor: help if title attribute is removed */
+}
+
+.explorerLink {
+  margin-left: 0.5rem;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: bold;
+  vertical-align: baseline; /* Align better with wrapped text */
+  white-space: nowrap; /* Prevent link itself from wrapping */
+}
+.explorerLink:hover { text-decoration: underline; color: #2563eb; }
+
+/* --- View/Hide Details Button (keep as is) --- */
+.buttonSecondary { /* Style for the details button */
+  background-color: #e5e7eb; color: #374151; border-color: #d1d5db;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+.buttonSecondary:hover:not(:disabled) { background-color: #d1d5db; border-color: #9ca3af;}
+
+
+/* --- Details Row & Container (keep as is) --- */
+.detailsRow td { padding: 0; border-bottom: 1px solid #e5e7eb; }
+.detailsContainer { padding: 1.5rem 1rem; background-color: #f9fafb; }
+.detailsContainer .loadingMessage,
+.detailsContainer .formStatusError { text-align: left; padding: 0.5rem 0; font-size: 0.9rem; }
+
+/* --- Target BatchDetails component inside details area --- */
+/* Use :global if BatchDetails uses CSS Modules, or target its classes directly */
+/* This removes the default panel styling from BatchDetails when nested */
+/* --- Target BatchDetails component inside details area (keep as is) --- */
+.detailsContainer > :global(.batch-details-module_panel),
+.detailsContainer > .batch-details
+{
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: transparent !important;
+}
+
+
+/* Spinner */
+.spinner { width: 1em; height: 1em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 0.5em; animation: spinner-rotation 0.7s linear infinite; }
+@keyframes spinner-rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* --- History & Details Section --- */
+.historySection {
+  /* Inherits .panel styles */
+  margin-top: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.loadingMessage, .noHistoryMessage {
+  text-align: center;
+  padding: 1rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.formStatusError { /* For history/details fetch errors */
+  background-color: #fef2f2; border-color: #fecaca; color: #b91c1c;
+  padding: 0.8rem 1.2rem; border-radius: 6px; font-size: 0.95rem;
+  border: 1px solid #fecaca; font-weight: 500; text-align: center;
+}
+
+/* --- History Table --- */
+.historyTableContainer {
+  overflow-x: auto; /* Still useful for overall table on very small screens */
+  max-width: 100%;
+}
+
+.historyTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  table-layout: fixed; /* Helps with column width distribution */
+}
+
+.historyTable th,
+.historyTable td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+   /* Allow wrapping within cells */
+   word-wrap: break-word;
+   word-break: break-all; /* Force break for long hashes/addresses */
+}
+
+/* --- Adjusted column widths (example) --- */
+.historyTable th:nth-child(1), /* Batch Address */
+.historyTable td:nth-child(1) {
+    width: 45%; /* Allocate more space */
+}
+.historyTable th:nth-child(2), /* Creation Tx */
+.historyTable td:nth-child(2) {
+    width: 40%; /* Allocate more space */
+}
+.historyTable th:nth-child(3), /* Actions */
+.historyTable td:nth-child(3) {
+    width: 15%;
+    white-space: nowrap; /* Keep actions on one line */
+    text-align: center;
+}
+
+
+.historyTable th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.historyRow:hover {
+  background-color: #f9fafb;
+}
+
+/* --- Cell Styling for Full Addresses/Hashes --- */
+.addressCell, .txHashCell {
+  font-family: monospace; /* Use monospace for readability */
+  font-size: 0.85em;    /* Slightly smaller font */
+  line-height: 1.4;     /* Improve spacing for wrapped lines */
+  /* Remove max-width and text-overflow */
+}
+
+.fullAddress { /* Span inside the cell - no longer needs special styling */
+    display: inline; /* Default span display */
+    /* Remove cursor: help if title attribute is removed */
+}
+
+.explorerLink {
+  margin-left: 0.5rem;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: bold;
+  vertical-align: baseline; /* Align better with wrapped text */
+  white-space: nowrap; /* Prevent link itself from wrapping */
+}
+.explorerLink:hover { text-decoration: underline; color: #2563eb; }
+
+/* --- View/Hide Details Button (keep as is) --- */
+.buttonSecondary { /* Style for the details button */
+  background-color: #e5e7eb; color: #374151; border-color: #d1d5db;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+.buttonSecondary:hover:not(:disabled) { background-color: #d1d5db; border-color: #9ca3af;}
+
+
+/* --- Details Row & Container (keep as is) --- */
+.detailsRow td { padding: 0; border-bottom: 1px solid #e5e7eb; }
+.detailsContainer { padding: 1.5rem 1rem; background-color: #f9fafb; }
+.detailsContainer .loadingMessage,
+.detailsContainer .formStatusError { text-align: left; padding: 0.5rem 0; font-size: 0.9rem; }
+

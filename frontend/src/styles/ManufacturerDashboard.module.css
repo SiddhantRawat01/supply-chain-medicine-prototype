@@ -1,0 +1,202 @@
+/* src/styles/ManufacturerDashboard.module.css */
+
+/* --- Base Layout --- */
+.dashboardContainer {
+  padding: 1.5rem;
+  background-color: #f9fafb; /* Light background */
+  max-width: 1200px; /* Max width */
+  margin: 2rem auto; /* Centering */
+  border-radius: 8px;
+}
+
+.title, .headline { /* Use headline for main title */
+  font-size: 1.8rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;
+}
+.description, .subHeadline { /* Use subHeadline for description */
+  font-size: 1rem; color: #6b7280; margin-bottom: 2rem;
+}
+.highlight { /* For account address display */
+  font-family: monospace; background-color: #e5e7eb; padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.95em;
+}
+
+/* --- Section/Panel/Card Styling --- */
+.section, .card, .panel /* Use .section as the primary panel class */
+{
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.05), 0 1px 2px -1px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.sectionTitle, .cardTitle {
+  font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-top: 0; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e5e7eb;
+}
+.sectionBody, .cardBody {
+  font-size: 0.95rem; color: #4b5563; margin-bottom: 1.5rem;
+}
+
+/* --- Location Section --- */
+.locationInputs { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .locationInputs { grid-template-columns: 1fr 1fr auto; } .locationInputs button { align-self: end; margin-bottom: 0.05rem; }}
+.locationWarning { color: #b45309; font-size: 0.85rem; margin-top: 0.5rem; font-style: italic; grid-column: 1 / -1; }
+
+/* --- Form Elements --- */
+.formGrid { display: grid; gap: 1.5rem; } /* Added for consistency if needed */
+@media (min-width: 768px) { .formGrid { grid-template-columns: repeat(2, 1fr); }}
+.gridItemFull { grid-column: 1 / -1; }
+
+
+.formGroup { display: flex; flex-direction: column; gap: 0.5rem; flex-grow: 1;}
+.formLabel { font-weight: 500; font-size: 0.9rem; color: #374151; }
+.formInput { display: block; width: 100%; padding: 0.7rem 1rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 1rem; color: #1f2937; background-color: #fff; transition: border-color 0.2s ease, box-shadow 0.2s ease; box-sizing: border-box; }
+.formInput:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); }
+.formInput::placeholder { color: #9ca3af; opacity: 1; }
+.formInput:disabled { background-color: #f3f4f6; cursor: not-allowed; opacity: 0.7; }
+.formLabelInline { margin-right: 0.8rem; flex-shrink: 0; font-weight: 500; font-size: 0.9rem; color: #374151;}
+.inputGroupInline { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+.inputGroupInline .formInput { flex-grow: 1; }
+
+/* --- Buttons --- */
+.button { display: inline-flex; align-items: center; justify-content: center; padding: 0.6rem 1.2rem; font-size: 0.95rem; font-weight: 600; border: 1px solid transparent; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; white-space: nowrap; }
+.buttonPrimary { background-color: #3b82f6; color: white; border-color: #3b82f6; }
+.buttonPrimary:hover:not(:disabled) { background-color: #2563eb; border-color: #2563eb;}
+.buttonSecondary { background-color: #e5e7eb; color: #374151; border-color: #d1d5db; padding: 0.4rem 0.8rem; font-size: 0.85rem; /* Smaller for details button */}
+.buttonSecondary:hover:not(:disabled) { background-color: #d1d5db; border-color: #9ca3af;}
+.button:disabled { background-color: #d1d5db; border-color: #d1d5db; color: #6b7280; cursor: not-allowed; opacity: 0.7; }
+.button:focus { outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4); }
+
+/* --- Nav --- */
+.nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 1rem; }
+.navButton { padding: 0.6rem 1rem; font-size: 0.9rem; font-weight: 500; border: 1px solid #d1d5db; border-radius: 6px; background-color: #fff; color: #374151; cursor: pointer; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 0.5px; }
+.navButton:hover:not(:disabled) { background-color: #f3f4f6; border-color: #9ca3af;}
+.navButtonActive { background-color: #3b82f6; color: #fff; border-color: #2563eb; cursor: default; }
+
+/* --- Status Area --- */
+.statusArea { margin-bottom: 1.5rem; min-height: 3rem; }
+.statusMessage { display: flex; align-items: flex-start; gap: 0.8rem; padding: 1rem 1.2rem; border-radius: 6px; border: 1px solid transparent; }
+.statusIcon { flex-shrink: 0; width: 1.5rem; height: 1.5rem; margin-top: 0.1rem; }
+.statusContent { font-size: 0.95rem; line-height: 1.5; }
+.statusMessage--info { background-color: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+.statusMessage--info .statusIcon { fill: #60a5fa; }
+.statusMessage--success { background-color: #f0fdf4; border-color: #bbf7d0; color: #15803d; }
+.statusMessage--success .statusIcon { fill: #4ade80; }
+.statusMessage--error { background-color: #fef2f2; border-color: #fecaca; color: #b91c1c; }
+.statusMessage--error .statusIcon { fill: #ef4444; }
+.statusMessage--loading { background-color: #fefce8; border-color: #fde047; color: #a16207; }
+.statusMessage--loading .statusIcon { fill: #facc15; }
+
+
+/* Generic Messages */
+.infoMessage, .errorMessage { padding: 1rem; text-align: center; border-radius: 6px; margin-top: 1rem;}
+.infoMessage { background-color: #f3f4f6; color: #4b5563; }
+.errorMessage { background-color: #fef2f2; color: #b91c1c; font-weight: 500; }
+.loadingMessage { /* Style specifically for loading text */
+    text-align: center; padding: 1rem; color: #6b7280; font-style: italic; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+}
+.noHistoryMessage { /* Style for no history found */
+    text-align: center; padding: 1rem; color: #6b7280; font-style: italic; margin-top: 1rem;
+}
+
+/* Audit View Controls */
+.auditInputGroup { display: flex; gap: 1rem; align-items: flex-end; margin-bottom: 1.5rem; }
+.auditInputGroup .formGroup { flex-grow: 1; margin-bottom: 0; }
+.auditInputGroup button { flex-shrink: 0; }
+
+
+/* --- ADDED/ADAPTED History Section Styles (from CreateRawMaterialForm/SupplierDashboard) --- */
+.historySection {
+  /* Inherits .section styles */
+  margin-top: 2rem; /* Space above history */
+}
+
+.formStatusError { /* Reusing this class name for history/details fetch errors */
+  background-color: #fef2f2; border-color: #fecaca; color: #b91c1c;
+  padding: 0.8rem 1.2rem; border-radius: 6px; font-size: 0.95rem;
+  border: 1px solid #fecaca; font-weight: 500; text-align: center; margin-top: 1rem;
+}
+
+/* --- History Table --- */
+.historyTableContainer {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-top: 1rem; /* Space above table */
+}
+
+.historyTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  /* table-layout: fixed; */ /* Optional: remove if causing issues */
+}
+
+.historyTable th,
+.historyTable td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: top; /* Align multi-line content top */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+/* Column Widths (Adjust as needed) */
+/* Let browser auto-size initially, uncomment if needed */
+/*
+.historyTable th:nth-child(1), .historyTable td:nth-child(1) { width: 45%; }
+.historyTable th:nth-child(2), .historyTable td:nth-child(2) { width: 40%; }
+*/
+.historyTable th:nth-child(3), .historyTable td:nth-child(3) { width: auto; min-width: 100px; white-space: nowrap; text-align: center; }
+
+.historyTable th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.historyRow:hover {
+  background-color: #f9fafb;
+}
+
+/* Cell Styling for Full Addresses/Hashes */
+.addressCell, .txHashCell {
+  font-family: monospace;
+  font-size: 0.85em;
+  line-height: 1.4;
+}
+.fullAddress { display: inline; } /* Basic span */
+
+.explorerLink {
+  margin-left: 0.5rem; color: #3b82f6; text-decoration: none;
+  font-weight: bold; vertical-align: baseline; white-space: nowrap;
+}
+.explorerLink:hover { text-decoration: underline; color: #2563eb; }
+
+
+/* Details Row & Container */
+.detailsRow td { padding: 0; border-bottom: 1px solid #e5e7eb; }
+.detailsContainer { padding: 1.5rem 1rem; background-color: #f9fafb; }
+.detailsContainer .loadingMessage,
+.detailsContainer .formStatusError { text-align: left; padding: 0.5rem 0; font-size: 0.9rem; }
+
+/* Target BatchDetails component inside details area */
+/* Adjust selector based on BatchDetails actual structure/styling */
+.detailsContainer > :global(.batch-details-module_panel),
+.detailsContainer > .batch-details
+{
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: transparent !important;
+}
+
+/* --- Spinner --- */
+.spinner { width: 1em; height: 1em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 0.5em; animation: spinner-rotation 0.7s linear infinite; }
+@keyframes spinner-rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Audit View Controls */
+.viewBatchControls { display: flex; gap: 1rem; align-items: flex-end; margin-bottom: 1.5rem; }
+.viewBatchControls .formGroup { flex-grow: 1; margin-bottom: 0; }
+.viewBatchControls button { flex-shrink: 0; }

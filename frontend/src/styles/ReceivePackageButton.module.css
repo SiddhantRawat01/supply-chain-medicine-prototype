@@ -1,0 +1,86 @@
+/* src/styles/ReceivePackageButton.module.css */
+
+.actionContainer {
+  display: flex;
+  flex-direction: column; /* Stack button and status */
+  align-items: flex-start; /* Align items to the start */
+  gap: 0.75rem; /* Space between button and status message */
+}
+
+.button {
+  /* Base button styles (reuse from other components or define here) */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.5rem; /* Slightly less padding than form submit */
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.receiveButton {
+  /* Specific styles for the receive button */
+  background-color: #22c55e; /* Green for positive action */
+  color: white;
+}
+
+.receiveButton:hover:not(:disabled) {
+  background-color: #16a34a; /* Darker green */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.receiveButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.4); /* Green focus ring */
+}
+
+.receiveButton:disabled {
+  background-color: #a7f3d0; /* Lighter green disabled */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Loading state within button */
+.loadingIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spinner {
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-rotation 0.7s linear infinite;
+}
+
+@keyframes spinner-rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Status message styling */
+.statusMessage {
+  width: 100%; /* Take full width of container */
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  word-wrap: break-word;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+/* Status variants (reuse styles from other forms if consistent) */
+.statusMessage--info { background-color: #eff6ff; border-color: #bfdbfe; color: #3b82f6; }
+.statusMessage--loading { background-color: #fefce8; border-color: #fde047; color: #ca8a04; }
+.statusMessage--success { background-color: #f0fdf4; border-color: #bbf7d0; color: #16a34a; }
+.statusMessage--error { background-color: #fef2f2; border-color: #fecaca; color: #dc2626; font-weight: 500;}
